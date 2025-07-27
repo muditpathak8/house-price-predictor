@@ -29,7 +29,7 @@
     - name: Engineer features
       run: |
         python src/features/engineer.py \
-          --input data/processed/ cleaned_house_data.csv \
+          --input data/processed/cleaned_house_data.csv \
           --output data/processed/featured_house_data.csv \
           --preprocessor models/trained/preprocessor.pk
 
