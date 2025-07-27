@@ -6,7 +6,7 @@
   pull_request:
     branches: [ main ]
  jobs:
-  data-processing:
+  workflow:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -24,9 +24,18 @@
       run: |
         python src/data/run_processing.py \
           --input data/raw/house_data.csv \ 
-          -- output data/processed/cleaned_house_data.csv 
+          --output data/processed/cleaned_house_data.csv 
     - name: Engineer features
       run: |
         python src/features/engineer.py \
           --input data/processed/ cleaned_house_data.csv \
-          --output data/processed/featured_house_data.csv --preprocessor models/trained/preprocessor.pk
+          --output data/processed/featured_house_data.csv \
+          --preprocessor models/trained/preprocessor.pk
+
+      - name: Train model
+        run: |
+          python src/models/train.py \
+          --config  configs/model_config.yaml \
+          --data data/processed/featured_house_data.csv \
+          --models-dir models \
+          --mlflow-tracking-uri http://localhost:5555
