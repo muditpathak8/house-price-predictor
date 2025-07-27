@@ -32,9 +32,9 @@
           --output data/processed/featured_house_data.csv \
           --preprocessor models/trained/preprocessor.pk
 
-      - name: Train model
-        run: |
-          python src/models/train.py \
+    - name: Train model
+      run: |
+        python src/models/train.py \
           --config  configs/model_config.yaml \
           --data data/processed/featured_house_data.csv \
           --models-dir models \
