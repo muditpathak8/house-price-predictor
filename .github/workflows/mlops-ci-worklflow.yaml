@@ -1,4 +1,4 @@
- name: MLOps Pipeline
+ name: Old pipeline
  on:
    workflow_dispatch:
  jobs:
