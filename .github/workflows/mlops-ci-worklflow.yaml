@@ -76,5 +76,4 @@
         context: .
         push: true
         tags: 08101982/fastapi:{{ github.sha}}
-        context: "."
         file: "Dockerfile"
