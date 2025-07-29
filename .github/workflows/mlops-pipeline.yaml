@@ -130,5 +130,5 @@
           context: .
           file: ./Dockerfile
           push: true
-          tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price
-          model:latest
+          tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-predictor:${{ github.sha }}
+          
